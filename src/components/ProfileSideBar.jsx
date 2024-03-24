@@ -1,16 +1,10 @@
 import { Button, Col } from "react-bootstrap";
-import IconButton from "../components/IconButton";
-import NewPostModal from "./NewPostModal";
+import IconButton from "./IconButton";
 import { useState } from "react";
-import ChatbotModal from "./ChatbotModal"
+import NewPostModal from "./NewPostModal";
 
 export default function ProfileSideBar({ handleLogout }) {
     const [show, setShow] = useState(false);
-    const [showChatbot, setShowChatbot] = useState(false);
-
-    const handleCloseChatbot = () => setShowChatbot(false);
-    const handleShowChatbot = () => setShowChatbot(true);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
@@ -23,13 +17,12 @@ export default function ProfileSideBar({ handleLogout }) {
             <IconButton className="bi bi-house" text="Home" />
             <IconButton className="bi bi-search" text="Explore" />
             <IconButton className="bi bi-bell" text="Notifications" />
-            <IconButton className="bi bi-envelope" text="Message" />
+            <IconButton className="bi bi-envelope" text="Messages" />
             <IconButton className="bi bi-journal-text" text="Lists" />
             <IconButton className="bi bi-bookmark" text="Bookmarks" />
             <IconButton className="bi bi-patch-check" text="Verified" />
             <IconButton className="bi bi-person" text="Profile" />
-            <IconButton className="bi bi-filter-check" text="More" />
-            <IconButton className="bi bi-chat-square-text" text="Chatbot" onClick={handleShowChatbot} />
+            <IconButton className="bi bi-filter-circle" text="More" />
             <IconButton
                 className="bi bi-door-closed"
                 text="Logout"
@@ -39,8 +32,6 @@ export default function ProfileSideBar({ handleLogout }) {
                 Tweet
             </Button>
             <NewPostModal show={show} handleClose={handleClose} />
-            <ChatbotModal show={showChatbot} handleClose={handleCloseChatbot} />
         </Col>
     );
 }
-
