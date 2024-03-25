@@ -51,5 +51,5 @@ export default function NewPostModal({ show, handleClose }) {
                 </Modal.Footer>
             </Modal>
         </>
-    )
+    );
 }
