@@ -18,7 +18,12 @@ export default function ProfilePage() {
     }, [currentUser, navigate]);
 
     const handleLogout = () => {
-        auth.signOut();
+        auth.signOut().then(() => {
+            // Redirect to login page after successful logout
+            navigate("/login");
+        }).catch((error) => {
+            console.error('Error logging out:', error);
+        });
     };
 
     return (
